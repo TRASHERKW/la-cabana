@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "seed": "node --env-file=.env.local scripts/seed.mjs",
-    "seed:reset": "node --env-file=.env.local scripts/seed.mjs --reset"
+    "seed:reset": "node --env-file=.env.local scripts/seed.mjs --reset",
+    "seed:atlas": "node --env-file=.env.atlas scripts/seed.mjs"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
