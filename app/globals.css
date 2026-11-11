@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta de la versión original de La Cabaña */
+  --color-crema: #fbf7ee;
+  --color-papel: #fff8e7;
+  --color-arena: #e8ddd9;
+  --color-paja: #f7f3d4;
+  --color-madera: #693839;
+  --color-madera-oscura: #5a2a2a;
+  --color-brasa: #b8604a;
+  --color-vino: #8b0000;
+  --color-bosque: #4d7a35;
+  --color-carbon: #2b2224;
+
+  --font-display: "Junge", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-crema);
+  color: var(--color-carbon);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+}
+@utility btn-primary {
+  @apply btn bg-brasa text-white hover:bg-madera;
+}
+@utility btn-dark {
+  @apply btn bg-carbon text-crema hover:bg-madera-oscura;
+}
+@utility btn-ghost {
+  @apply btn border border-madera/30 text-madera hover:bg-madera/10;
+}
+@utility input {
+  @apply w-full rounded-xl border border-arena bg-papel px-4 py-2.5 text-sm outline-none transition placeholder:text-carbon/40 focus:border-brasa focus:ring-2 focus:ring-brasa/20;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-medium text-carbon/80;
+}
+@utility card {
+  @apply rounded-2xl border border-arena bg-papel shadow-[0_1px_0_rgba(62,38,22,0.04)];
+}
+@utility container-lc {
+  @apply mx-auto w-full max-w-6xl px-5;
+}
+
+/* Textura sutil de grano en el hero */
+.grain {
+  background-image: radial-gradient(rgba(90, 42, 42, 0.08) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: rise 0.6s ease-out both;
+}
